@@ -1,3 +1,6 @@
+"""
+Provides functionality for cropping, cutting out receipt from raw picture
+"""
 import cv2
 import numpy as np
 
@@ -54,7 +57,7 @@ def four_point_transform(image, points):
     (tl, tr, br, bl) = rectangle
 
     # width of the image is equal to the distance between right
-    # and left corners
+    # and left corner
     # calculate width for top and bottom corners and
     # then find maximum
     w1 = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
@@ -90,7 +93,7 @@ def crop(image):
     Returns cropped image or `None`
     """
     contours = find_conturs(image)
-    if type(contours) is np.ndarray:
+    if isinstance(contours, np.ndarray):
         points = np.array(contours.reshape(4, 2))
         cropped = four_point_transform(image, points)
         return cropped
@@ -100,7 +103,7 @@ def crop(image):
 
 #     TEST1 = "../../../test_images/rot2.jpeg"
 #     TEST2 = "../../../test_images/polo2.jpg"
-#     img = cv2.imread(TEST2)
+#     img = cv2.imread(TEST1)
 #     c = crop(img)
 #     if c is not None: 
 #         cv2.imshow("dfd", c)

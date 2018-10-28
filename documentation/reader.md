@@ -7,7 +7,7 @@ To help OCR module and increase its accuracy module we preprocess images.
 - [ ] **Rescaling** - Tesseract works best when the image is at least 300 dpi.
 - [ ] **Blurring** -  is used in order to reduce noise.
 - [ ] **Thersholding** 
-- [ ] **Crop** - *"cut out"* the receipt from original image
+- [x] **Crop** - *"cut out"* the receipt from original image
 
 ### Optical Character Recognition
 For OCR we are using [tesseract](https://github.com/tesseract-ocr/tesseract) and [pytesseract](https://github.com/madmaze/pytesseract).
