@@ -19,8 +19,9 @@ def preprocess(image):
             image = cropped
     # filter
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
+    # image = cv2.GaussianBlur(image, (3, 3), 0)
     # threshold
+    # image = cv2.adaptiveThreshold(image,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,21,4)
 
     return image
 
@@ -28,6 +29,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Preprocess images before performing OCR")
     parser.add_argument("--image", type=str, required=True, help="Input image path")
     parser.add_argument("--show", action="store_true")
+    parser.add_argument("--save", type=str, help="dir path to which output image should be saved")
     args = parser.parse_args()   
     
     # get image
@@ -37,6 +39,9 @@ if __name__ == "__main__":
         cv2.namedWindow("output", cv2.WINDOW_AUTOSIZE)
         cv2.imshow("output", output)
         cv2.waitKey(0)
-
+    if args.save:
+        import os 
+        FILE_NAME = os.path.basename(args.image)
+        cv2.imwrite(os.path.join(args.save, FILE_NAME), output)
     
 
