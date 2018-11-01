@@ -8,6 +8,6 @@ node_modules/
 *.jpg
 *.jpeg
 *.png
-
+*.HEIC
 # Miscellaneous
 *.log

@@ -11,20 +11,19 @@ def find_conturs(image):
     Returns None if no contours were found
     """
     # detect edges
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    gray = cv2.GaussianBlur(gray, (7, 7), 0)
-    edges = cv2.Canny(gray, 50, 100)
-    cv2.waitKey(0)
+    gray = cv2.GaussianBlur(image, (7, 7), 0)
+    gray = cv2.cvtColor(gray, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(gray, 10, 200)
+    edges = cv2.dilate(edges, np.ones((9, 9), np.uint8))
     # detect contours and sort them according to contour area
     _, contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:5]
-    
     receipt_contour = None
     for contour in contours:
         perimeter = cv2.arcLength(contour, True)
         # approximate a polygonal curve with the specified precision
         # function uses Ramer–Douglas–Peucker algorithm
-        approx_curve = cv2.approxPolyDP(contour, 0.02 * perimeter, True) # contour, epsilon, closed? 
+        approx_curve = cv2.approxPolyDP(contour, 0.05 * perimeter, True) # contour, epsilon, closed? 
         if len(approx_curve) == 4:
             receipt_contour = approx_curve
             break
@@ -90,7 +89,7 @@ def crop(image):
     """
     If possible cut out receipt from raw `image`. 
 
-    Returns cropped image or `None`
+    Returns cropped image or `None` if failed to crop
     """
     contours = find_conturs(image)
     if isinstance(contours, np.ndarray):
@@ -102,11 +101,12 @@ def crop(image):
 # if __name__ == "__main__":
 
 #     TEST1 = "../../../test_images/rot2.jpeg"
-#     TEST2 = "../../../test_images/polo2.jpg"
-#     img = cv2.imread(TEST1)
+#     TEST2 = "../../../test_images/care3.jpg"
+#     img = cv2.imread(TEST2)
 #     c = crop(img)
+#     cv2.imshow("image", img)
 #     if c is not None: 
-#         cv2.imshow("dfd", c)
-#     cv2.imshow("img", img)
+#         cv2.imshow("cropped", c)
+    
 #     cv2.waitKey(0)
     
