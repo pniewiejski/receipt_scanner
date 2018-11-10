@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography';
-import logo from '../images/receipt.svg';
+import LogoIcon from './Logo';
 
 const styles = theme => ({
 logoIcon: {
@@ -23,11 +23,7 @@ class Header extends Component {
             justify="center"
             >
                 <Grid item>
-                <img
-            src={logo}
-            alt=''
-            width='200px'
-            />
+                {/* FIX ME <LogoIcon /> */}
                 </Grid>
                 <Grid item>
                 <Typography component="h2" variant="h1" gutterBottom>

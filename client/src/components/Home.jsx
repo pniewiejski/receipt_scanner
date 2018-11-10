@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Upload from './Upload';
-import Logo from './Header';
+import Header from './Header';
 import {withStyles} from '@material-ui/core/styles'
 import PropTypes from "prop-types";
 
@@ -28,7 +28,7 @@ class Home extends Component {
             >
 
                 <Grid item xs={12}>
-                    <Logo />
+                <Header />
                 </Grid>
                 <Grid item xs={12}>
                     <Upload />
