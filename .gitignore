@@ -2,8 +2,12 @@
 __pycache__/
 .pytest_cache/
 
+# directories
+uploads/
+
 # JavaScript
 node_modules/
+
 
 # images
 *.jpg
