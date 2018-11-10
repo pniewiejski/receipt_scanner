@@ -1,8 +1,12 @@
 # Python
 __pycache__/
 
+# directories
+uploads/
+
 # JavaScript
 node_modules/
+
 
 # images
 *.jpg
