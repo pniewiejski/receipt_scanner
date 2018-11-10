@@ -1,7 +1,7 @@
 # manual test
 # Place your test images in ../../test_images/ 
 
-TEST_IMAGES="../../test_images/"
+TEST_IMAGES="../test_images/"
 OUT="../out_images/"
 
 if [ ! -d "$OUT" ]; then 
