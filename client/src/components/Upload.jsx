@@ -34,15 +34,15 @@ class Upload extends Component {
         console.log('klik')
         const data = new FormData();
         console.log(this.uploadInput.current.files[0]);
-        // data.append('file', this.uploadInput.files[0]);
-        // data.append('filename', this.fileName.value)
+         data.append('file', this.uploadInput.current.files[0]);
+         
 
-        fetch('http://localhost:8000/upload', {
+        fetch('http://localhost:5000/upload', {
             method: 'POST',
             body: data,
           }).then((response) => {
             response.json().then((body) => {
-              this.setState({ imageUrl: `http://localhost:8000/${body.file}` });
+              this.setState({ imageUrl: `http://localhost:5000/${body.file}` });
             });
           });
         }
@@ -59,11 +59,11 @@ class Upload extends Component {
                         accept="image/*"
                         className={classes.input}
                         id='contained-button-file'
+                        size="1000000"
                         
                     />
                 <label htmlFor='contained-button-file'>
-                <Button 
-                
+                <Button  
                 variant="contained" 
                 component='span'
                 className={classes.button}
