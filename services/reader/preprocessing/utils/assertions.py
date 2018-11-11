@@ -12,7 +12,6 @@ def assert_area_ratio(before, after) -> bool:
     """
     # I know it's stupid,
     # but I do not have a better idea for the moment... 
-    # maybe I'll refactor it later 
     RATIO = 0.1
     h1, w1, _ = before.shape
     h2, w2, _ = after.shape

@@ -17,3 +17,4 @@ node_modules/
 *.HEIC
 # Miscellaneous
 *.log
+.vscode/

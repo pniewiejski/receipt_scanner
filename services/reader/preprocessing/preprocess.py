@@ -1,11 +1,14 @@
 """
 Preprocess images
 """
-import argparse
 import cv2
 
-from utils.crop import crop
-from utils.assertions import assert_area_ratio
+# from utils.crop import crop
+# from utils.assertions import assert_area_ratio
+
+from preprocessing.utils.crop import crop
+from preprocessing.utils.assertions import assert_area_ratio
+
 
 def preprocess(image):
     """
@@ -26,6 +29,9 @@ def preprocess(image):
     return image
 
 if __name__ == "__main__":
+    
+    import argparse
+
     parser = argparse.ArgumentParser(description="Preprocess images before performing OCR")
     parser.add_argument("--image", type=str, required=True, help="Input image path")
     parser.add_argument("--show", action="store_true")
