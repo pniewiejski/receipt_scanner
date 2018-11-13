@@ -21,4 +21,4 @@ def only_sum(text: str) -> Receipt:
             raise ParsingException("Could not parse {} to float type".format(total_cost))
         return Receipt("Shop Name", total_cost, [])
     else: 
-        raise ParsingException("Parsing could not yeild anthing interesting. No match error.")
+        raise ParsingException("Parsing could not yield anthing interesting. No match error.")

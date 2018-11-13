@@ -9,14 +9,15 @@ class Receipt():
     """
     Instances of the Receipt class are structures for holding data retrieved from images of receipts.
     """
-    def __init__(self, shop: str, total_cost: float, items: list, date: str=None):
+    def __init__(self, shop: str, total_cost: float, items: list, date=None):
         self.shop = shop
         self.totalCost = total_cost
         self.items = items
         if date is None: 
             self.date = str(datetime.now())
         elif isinstance(date, str): 
-            self.date = datetime.strptime(date, )
+            # self.date = datetime.strptime(date, )
+            raise NotImplementedError("Receipt date as str")
         else: 
             raise TypeError("date cannot be of type: {}".format(type(date)))
     
