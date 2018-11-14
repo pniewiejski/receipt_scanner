@@ -9,6 +9,10 @@ from parsing.errors.parsing_error import ParsingException
 def only_sum(text: str) -> Receipt:
     """
     Extract only the SUM value
+
+    Errors
+    ------
+    `ParsingException` is raised on fail
     """
     #search_for = re.compile(r"SUMA:{0,1}\s*(\d[\.,]\d\d)", re.IGNORECASE)
     parsed = re.search(r"SU[MN]A[:;]{0,1}\s*P?L?N?\s*(\d+[\.,]\d\d)", text, re.IGNORECASE)

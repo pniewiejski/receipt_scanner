@@ -6,8 +6,8 @@ Reader is meant to take an input image (eg. photo taken with a smartphone) and o
 To help OCR module and increase its accuracy module we preprocess images. 
 - [x] **Crop** - *"cut out"* the receipt from original image
 - [ ] **Rescaling** - Tesseract works best when the image is at least 300 dpi.
-- [ ] **Blurring** -  is used in order to reduce noise.
-- [ ] **Thersholding** 
+- [x] **Blurring** -  is used in order to reduce noise.
+- [x] **Thersholding** 
 
 Cropping works best when receipt is visible in its entirety (all four corners of the paper sheet have to be visible). It's best practice for pictures to have a dark, uniform background. Otherwise there might be problems detecting your receit.
 

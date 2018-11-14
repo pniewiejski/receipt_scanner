@@ -1,4 +1,7 @@
-import os, json
+import os
+
+from receipt_reader import read_receipt
+
 from flask import Flask, flash, request, redirect, url_for, session, Response
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
@@ -7,13 +10,9 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 
-import sys, os
-sys.path.insert(0, os.path.abspath('../reader'))
-import reader.read as reader
-
 logger = logging.getLogger('Uploader Service')
 
-UPLOAD_FOLDER = '../../uploads'
+UPLOAD_FOLDER = '../uploads'
 ALLOWED_EXTENTIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -36,16 +35,16 @@ def uploadFile():
     destination="/".join([target, filename])
     logger.info("uploaded file name: %s ", file.filename)
     file.save(destination)
+
+    receipt_json, status_code = read_receipt(destination)
+
     session['uploadFilePath']=destination
     response = {
         'success': 'true'
     }
 
-    res = Response(json.dumps(response), status=200, mimetype='text/plain')
-
+    res = Response(receipt_json, status=status_code, mimetype='text/plain')
     return res
-
-
 
 app.secret_key = os.urandom(24)
 app.run(debug=True,host="0.0.0.0",use_reloader=False)
