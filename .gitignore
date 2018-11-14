@@ -1,5 +1,7 @@
 # Python
 __pycache__/
+.pytest_cache/
+.pyc
 
 # directories
 uploads/
@@ -12,6 +14,7 @@ node_modules/
 *.jpg
 *.jpeg
 *.png
-
+*.HEIC
 # Miscellaneous
 *.log
+.vscode/
