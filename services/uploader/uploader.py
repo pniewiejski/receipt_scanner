@@ -1,5 +1,5 @@
-import os
-from flask import Flask, flash, request, redirect, url_for, session
+import os, json
+from flask import Flask, flash, request, redirect, url_for, session, Response
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
 import logging
@@ -32,9 +32,13 @@ def uploadFile():
     logger.info("uploaded file name: %s ", file.filename)
     file.save(destination)
     session['uploadFilePath']=destination
-    response = "response - dont know what to return yet"
+    response = {
+        'success': 'true'
+    }
 
-    return response
+    res = Response(json.dumps(response), status=200, mimetype='text/plain')
+
+    return res
 
 
 
