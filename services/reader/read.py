@@ -22,7 +22,7 @@ def read(path: str):
     receipt = parse(text)
     return receipt
 
-if __name__ == "__main__":
-    json = read('../test_images/3.png')
-    print(json)
-    print(dir() )
+# if __name__ == "__main__":
+#     json = read('/home/piotr/Desktop/test2.jpeg')
+#     print(json)
+#     print(dir() )

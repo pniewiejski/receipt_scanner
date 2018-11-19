@@ -12,6 +12,6 @@ def read_receipt(path: str):
     try:
         receipt = reader.read(path)
     except: 
-        return r.Receipt("", 0, []), 500
+        return r.Receipt("", 0, []).to_json(), 418
     else:
         return receipt, 200

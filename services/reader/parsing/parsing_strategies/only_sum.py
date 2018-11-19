@@ -15,7 +15,7 @@ def only_sum(text: str) -> Receipt:
     `ParsingException` is raised on fail
     """
     #search_for = re.compile(r"SUMA:{0,1}\s*(\d[\.,]\d\d)", re.IGNORECASE)
-    parsed = re.search(r"SU[MN]A[:;]{0,1}\s*P?L?N?\s*(\d+[\.,]\d\d)", text, re.IGNORECASE)
+    parsed = re.search(r"SU[MN][ĄA][:;]{0,1}\s*P?L?N?\s*(\d+[\.,]\d\d)", text, re.IGNORECASE)
     if parsed is not None:
         parsed = parsed.group(1)
         parsed = comma_to_dot(parsed)
@@ -26,3 +26,4 @@ def only_sum(text: str) -> Receipt:
         return Receipt("Shop Name", total_cost, [])
     else: 
         raise ParsingException("Parsing could not yield anthing interesting. No match error.")
+

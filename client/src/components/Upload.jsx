@@ -38,12 +38,11 @@ class Upload extends Component {
         data.append('file', this.uploadInput.current.files[0]);
          
 
-        fetch('http://172.20.10.7:5000/upload', {
+        fetch('http://192.168.1.15:5000/upload', {
             method: 'POST',
             body: data, 
-          }).then((response) => {
-            console.log(response)
-          });
+          }).then(response => response.json())
+	    .then(data => console.log(data));
         }
 
         readFile = (file) => {

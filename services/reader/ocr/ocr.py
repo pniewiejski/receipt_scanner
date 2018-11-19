@@ -9,12 +9,13 @@ def ocr(image) -> str:
 
     `image` - openCV or Pillow image
     """
-    text = pytesseract.image_to_string(image)
+    text = pytesseract.image_to_string(image, lang="pol") 
+    # TODO: implement case where there's no 'pol' file
 
     return text
 
-if __name__ == "__main__": 
-    import cv2
-    img = cv2.imread('../../test_images/2.jpg')
-    text = ocr(img)
-    print(text)
+# if __name__ == "__main__": 
+#     import cv2
+#     img = cv2.imread('/home/piotr/Desktop/test2.jpeg')
+#     text = ocr(img)
+#     print(text)
