@@ -1,7 +1,7 @@
 import cv2
 
 from preprocessing.preprocess import preprocess
-from ocr.ocr import ocr
+from ocr.ocr_google import ocr
 from parsing.parser import parse
 
 def read(path: str):
@@ -17,12 +17,12 @@ def read(path: str):
     if image is None:
         raise IOError("Could not open image file under: {}".format(path))
 
-    image = preprocess(image)
-    text = ocr(image)
+    image = preprocess(image) 
+    cv2.imwrite(path, image)
+    text = ocr(path)
     receipt = parse(text)
     return receipt
 
 # if __name__ == "__main__":
-#     json = read('/home/piotr/Desktop/test2.jpeg')
+#     json = read('./test_images/iphone2.jpg')
 #     print(json)
-#     print(dir() )

@@ -18,3 +18,5 @@ node_modules/
 # Miscellaneous
 *.log
 .vscode/
+google_vision_auth.json
+api_key.json

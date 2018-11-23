@@ -2,4 +2,5 @@ pytesseract
 pillow
 Flask
 flask-cors
+requests
 
