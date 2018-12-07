@@ -11,7 +11,9 @@ def read_receipt(path: str):
     """
     try:
         receipt = reader.read(path)
-    except: 
+    except Exception as e: 
+        print("DEBUG: Exception occured")
+        print(e)
         return r.Receipt("", 0, []).to_json(), 418
     else:
         return receipt, 200

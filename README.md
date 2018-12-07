@@ -20,3 +20,7 @@ This project was divided into smaller parts:
 Well you don't... at this point
 
 ![i](https://i.kym-cdn.com/photos/images/newsfeed/001/305/222/ae7.gif)
+
+### Adding support for other languages in tesseract
+
+Download *.traineddata file from [github.com/tesseract-ocr/tessdata_fast](https://github.com/tesseract-ocr/tessdata_fast). And then place it in your tesseract directory in tessdata/. (eg.: /usr/share/tesseract-ocr/4.00/tessdata)

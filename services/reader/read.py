@@ -19,6 +19,7 @@ def read(path: str):
 
     image = preprocess(image)
     text = ocr(image)
+    print(text)
     receipt = parse(text)
     return receipt
 
