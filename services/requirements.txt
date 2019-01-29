@@ -2,4 +2,4 @@ pytesseract
 pillow
 Flask
 flask-cors
-opencv-python
+
