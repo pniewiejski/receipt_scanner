@@ -15,6 +15,12 @@ node_modules/
 *.jpeg
 *.png
 *.HEIC
+
+# editor
+.vscode/
+.idea/
+
 # Miscellaneous
 *.log
-.vscode/
+
+

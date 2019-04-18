@@ -1,4 +1,5 @@
 # This is cheating
+# TODO: refactor module imports
 import sys, os
 sys.path.insert(0, os.path.abspath('./reader'))
 
