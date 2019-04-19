@@ -16,7 +16,7 @@ def find_conturs(image):
     edges = cv2.Canny(gray, 10, 200)
     edges = cv2.dilate(edges, np.ones((9, 9), np.uint8))
     # detect contours and sort them according to contour area
-    _, contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:5]
     receipt_contour = None
     for contour in contours:

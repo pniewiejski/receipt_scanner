@@ -1,7 +1,7 @@
 import cv2
 
 from preprocessing.preprocess import preprocess
-from ocr.ocr import ocr
+from ocr import ocr
 from parsing.parser import parse
 
 def read(path: str):
@@ -18,12 +18,16 @@ def read(path: str):
         raise IOError("Could not open image file under: {}".format(path))
 
     image = preprocess(image)
-    text = ocr(image)
+    text = ocr(image, language="pol")
     print(text)
     receipt = parse(text)
     return receipt
 
-# if __name__ == "__main__":
-#     json = read('/home/piotr/Desktop/test2.jpeg')
-#     print(json)
-#     print(dir() )
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
+    else: 
+        path = "./test/test_images/test.JPG"
+    json = read(path)
+    print(json)

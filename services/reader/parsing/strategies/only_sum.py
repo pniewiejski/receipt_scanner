@@ -3,8 +3,8 @@ Find only the SUM
 """
 import re
 from parsing.receipt import Receipt # relative import - life is full of zasadzkas
-from parsing.parsing_strategies import comma_to_dot
-from parsing.errors.parsing_error import ParsingException
+from parsing.strategies import comma_to_dot
+from parsing.parsing_error import ParsingException
 
 def only_sum(text: str) -> Receipt:
     """

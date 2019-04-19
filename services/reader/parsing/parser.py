@@ -6,15 +6,16 @@ Parse receipt data
 # from parsing_strategies.only_sum import only_sum
 
 from parsing.receipt import Receipt
-from parsing.parsing_strategies.only_sum import only_sum
-from parsing.parsing_strategies.shop_sum import shop_sum
+from parsing.strategies.only_sum import only_sum
+from parsing.strategies.orlen import orlen
 
-def select_stategy(text, default=False):
+def select_strategy(text, default=False):
     """
     Returns a parsing strategy (function).
     """
-    #func = only_sum
-    func = shop_sum
+    # TODO : refactor select_strategy or get rid of it! 
+    # func = only_sum # use only_sum as temporary mock 
+    func = orlen
     return func
 
 def parse(text) -> str:
@@ -23,9 +24,9 @@ def parse(text) -> str:
 
     Returns a JSON formated string
     """
-    parser = select_stategy(text)
+    parser = select_strategy(text)
     receipt = parser(text)
     return receipt.to_json()
 
-# if __name__ == "__main__":
-#     print(parse("fdd"))
+if __name__ == "__main__":
+    print(parse("this is a test string SUMA: 44.20 lorem ipsum"))

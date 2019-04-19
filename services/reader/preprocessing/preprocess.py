@@ -3,12 +3,11 @@ Preprocess images
 """
 import cv2
 
-# from utils.crop import crop
-# from utils.assertions import assert_area_ratio
+# from crop import crop
+# from assertions import assert_area_ratio
 
-from preprocessing.utils.crop import crop
-from preprocessing.utils.assertions import assert_area_ratio
-
+from preprocessing.crop import crop
+from preprocessing.assertions import assert_area_ratio
 
 def preprocess(image):
     """
@@ -51,6 +50,7 @@ if __name__ == "__main__":
     if args.save:
         import os 
         FILE_NAME = os.path.basename(args.image)
+        print("Saving image in: " + os.path.join(args.save, FILE_NAME))
         cv2.imwrite(os.path.join(args.save, FILE_NAME), output)
     
 

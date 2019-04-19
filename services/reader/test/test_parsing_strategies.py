@@ -1,6 +1,6 @@
 import pytest
 
-from parsing.parsing_strategies.only_sum import only_sum
+from parsing.strategies.only_sum import only_sum
 
 # TEXT = "this is a test string SUMA: 44.20 lorem ipsum"
 # EXPECT = 44.20
