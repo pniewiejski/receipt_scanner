@@ -24,6 +24,7 @@ class Upload extends Component {
 
         this.state = {
             imageUrl: '',
+            receipt: {}
         };
 
         this.handleImageUpload = this.handleImageUpload.bind(this);
@@ -38,10 +39,11 @@ class Upload extends Component {
         data.append('file', this.uploadInput.current.files[0]);
          
 
-        fetch('http://192.168.1.15:5000/upload', {
+        fetch('http://192.168.1.11:5000/upload', {
             method: 'POST',
             body: data, 
           }).then(response => response.json())
+        .then(data => {this.setState({receipt: data}); return data;})
 	    .then(data => console.log(data));
         }
 
@@ -53,30 +55,33 @@ class Upload extends Component {
     render() {
         const { classes } = this.props;
             return (
-                <div>
-                <input
-                        type="file"
-                        ref={this.uploadInput}
-                        onChange={this.handleImageUpload}
-                        accept="image/*"
-                        className={classes.input}
-                        id='contained-button-file'
-                        
-                    />
-                <label htmlFor='contained-button-file'>
-                <Button  
-                variant="contained" 
-                component='span'
-                className={classes.button}
-                size='large'
-                color="primary"
-                disableRipple={true}
-                >
-                Upload
-                <CloudUploadIcon className={classes.rightIcon} />
-              </Button>
-              </label>
-              </div>
+                <>
+                    <input
+                            type="file"
+                            ref={this.uploadInput}
+                            onChange={this.handleImageUpload}
+                            accept="image/*"
+                            className={classes.input}
+                            id='contained-button-file'
+                            
+                        />
+                    <label htmlFor='contained-button-file'>
+                    <Button  
+                    variant="contained" 
+                    component='span'
+                    className={classes.button}
+                    size='large'
+                    color="primary"
+                    disableRipple={true}
+                    >
+                    Upload
+                    <CloudUploadIcon className={classes.rightIcon} />
+                    </Button>
+                    </label>
+                    <div>
+                        <p>receipt: {JSON.stringify(this.state.receipt)}</p>
+                    </div>
+                </>
               );
     }
 }
