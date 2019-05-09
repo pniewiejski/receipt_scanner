@@ -28,6 +28,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         path = sys.argv[1]
     else: 
-        path = "./test/test_images/test.JPG"
+        path = "./test/test_images/orlen1.JPG"
     json = read(path)
     print(json)
